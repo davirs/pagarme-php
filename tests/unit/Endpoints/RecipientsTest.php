@@ -268,10 +268,8 @@ final class RecipientTest extends PagarMeTestCase
         $requestsContainer = [];
         $client = self::buildClient($requestsContainer, $mock['generateKycLink']);
 
-        $response = $client->recipients()->kyc([
-            'base64' => 'BJ1B51JK2B51KJ2B5=',
-            'url' => 'www.pagar.me/kyc/14214214215',
-            'expiration_date' => '2024-02-10T20:35:46.046Z'
+        $response = $client->recipients()->generateKycLink([
+            'id' => 're_abc1234abc1234abc1234abc1'
         ]);
 
         $this->assertEquals(
