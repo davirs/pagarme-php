@@ -146,4 +146,23 @@ class RecipientHandler extends AbstractHandler
 
         return $operations;
     }
+
+    /**
+     * @param string $recipientId
+     * @return array
+     */
+    public function generateKycLink($recipientId)
+    {
+        $request = new RecipientGenerateKycLink($recipientId);
+
+        $response = $this->client->send($request);
+
+        $links = [];
+
+        foreach ($response as $link) {
+            $links[] = $link;
+        }
+
+        return $links;
+    }
 }

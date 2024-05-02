@@ -83,6 +83,7 @@ Integração em PHP para a [Pagar.me API](https://docs.pagar.me/)
     - [Saldo de um recebedor](#Saldo-de-um-recebedor)
     - [Operações de saldo de um recebedor](#Operações-de-saldo-de-um-recebedor)
     - [Operação de saldo específica de um recebedor](#Operação-de-saldo-específica-de-um-recebedor)
+    - [Gerando um link kyc](#Gerando-link-kyc)
   - [Clientes](#Clientes)
     - [Criando um cliente](#Criando-um-cliente)
     - [Retornando clientes](#Retornando-clientes)
@@ -1038,6 +1039,13 @@ $recipientId = "re_ciu4jif1j007td56dsm17yew9";
 $recipient = $pagarMe->recipient()->get($recipientId);
 $balanceOperationId = 2043993;
 $operation = $pagarMe->recipient()->balanceOperation($recipient, $balanceOperationId);
+```
+
+### Gerando Link Kyc
+```php
+<?php
+$recipientId = "re_cj3g1cml000e75f6ehjnpsl9y";
+$link = $pagarMe->recipient()->generateKycLink($recipientId);
 ```
 
 ## Clientes
