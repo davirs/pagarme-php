@@ -119,6 +119,10 @@ class Routes
             return "recipients/$recipientId/balance/operations/$balanceOperationId";
         };
 
+        $anonymous->kyc = static function ($id) {
+            return "recipients/$id/kyc_link";
+        };
+
         return $anonymous;
     }
 

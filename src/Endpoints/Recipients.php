@@ -105,4 +105,18 @@ class Recipients extends Endpoint
             )
         );
     }
+
+    /**
+     * @param array $payload
+     *
+     * @return \ArrayObject
+     */
+    public function generateKycLink(array $payload)
+    {
+        return $this->client->request(
+            self::POST,
+            Routes::recipients()->kyc($payload['id']),
+            ['json' => $payload]
+        );
+    }
 }

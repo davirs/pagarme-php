@@ -30,6 +30,9 @@ final class RecipientTest extends PagarMeTestCase
                 new Response(200, [], self::jsonMock('BalanceOperationListMock')),
                 new Response(200, [], '[]')
             ]),
+            'generateKycLink' => new MockHandler([
+                new Response(200, [], self::jsonMock('KycLinkMock'))
+            ]),
         ]]];
     }
 
@@ -253,6 +256,32 @@ final class RecipientTest extends PagarMeTestCase
         );
         $this->assertEquals(
             json_decode(self::jsonMock('BalanceOperationMock')),
+            $response
+        );
+    }
+
+    /**
+     * @dataProvider mockProvider
+     */
+    public function testRecipientGenerateKycLink($mock)
+    {
+        $requestsContainer = [];
+        $client = self::buildClient($requestsContainer, $mock['generateKycLink']);
+
+        $response = $client->recipients()->generateKycLink([
+            'id' => 're_abc1234abc1234abc1234abc1'
+        ]);
+
+        $this->assertEquals(
+            Recipients::POST,
+            self::getRequestMethod($requestsContainer[0])
+        );
+        $this->assertEquals(
+            '/1/recipients/re_abc1234abc1234abc1234abc1/kyc_link',
+            self::getRequestUri($requestsContainer[0])
+        );
+        $this->assertEquals(
+            json_decode(self::jsonMock('KycLinkMock')),
             $response
         );
     }

@@ -137,6 +137,8 @@ class RoutesTest extends TestCase
         $this->assertIsCallable($routes->balanceOperations);
         $this->assertObjectHasAttribute('balanceOperation', $routes);
         $this->assertIsCallable($routes->balanceOperation);
+        $this->assertObjectHasAttribute('kyc', $routes);
+        $this->assertIsCallable($routes->kyc);
     }
 
     public function testSubscriptionRoutes()
