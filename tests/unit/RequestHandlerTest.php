@@ -10,8 +10,8 @@ class RequestHandlerTest extends TestCase
     public function testBindApiKey()
     {
         $this->assertEquals(
-            ['query' => ['api_key' => 'katiau']],
-            RequestHandler::bindApiKeyToQueryString([], 'katiau')
+            ['headers' => ['Authorization' => 'Basic a2F0aWF1Og==']],
+            RequestHandler::bindApiKeyToBasicAuth([], 'katiau')
         );
     }
 }

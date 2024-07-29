@@ -10,9 +10,9 @@ class RequestHandler
      *
      * @return array
      */
-    public static function bindApiKeyToQueryString(array $options, $apiKey)
+    public static function bindApiKeyToBasicAuth(array $options, $apiKey)
     {
-        $options['query']['api_key'] = $apiKey;
+        $options['headers']['Authorization'] = 'Basic ' . base64_encode($apiKey.':');
 
         return $options;
     }

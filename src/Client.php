@@ -191,7 +191,7 @@ class Client
             $response = $this->http->request(
                 $method,
                 $uri,
-                RequestHandler::bindApiKeyToQueryString(
+                RequestHandler::bindApiKeyToBasicAuth(
                     $options,
                     $this->apiKey
                 )
