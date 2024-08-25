@@ -13,8 +13,7 @@
     "homepage": "http://pagar.me",
     "license": "MIT",
     "require": {
-        "php": ">=5.4.0",
-        "guzzlehttp/guzzle": "5.3.4"
+        "php": ">=5.4.0"
     },
     "require-dev": {
         "ext-mbstring": "*",
