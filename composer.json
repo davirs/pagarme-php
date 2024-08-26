@@ -1,5 +1,5 @@
 {
-    "name": "pagarme/pagarme-php",
+    "name": "davirs/pagarme-php",
     "description": "Pagar.Me PHP Library",
     "type": "lib",
     "keywords": [
@@ -13,6 +13,7 @@
     "homepage": "http://pagar.me",
     "license": "MIT",
     "require": {
+        "guzzlehttp/guzzle": ">=7",
         "php": ">=5.4.0"
     },
     "require-dev": {
